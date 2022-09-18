@@ -44,16 +44,10 @@ export default function Calculation() {
 
     const calcValidatorReward = () => {
         calcBaseReward();
-        // console.log(baseReward)
         let proportionalBaseReward = 3;
         let lateSlotPenalty = .0156;
-
-        // let onlineValidatorReward = baseReward * proportionalBaseReward * validatorUptime + 1 * (0.125 * baseReward * validatorUptime + .0875 * baseReward * (validatorUptime + validatorUptime * (1 - validatorUptime) * (1 - lateSlotPenalty) + validatorUptime * (1 - validatorUptime) ** 2 * (1 - 2 * lateSlotPenalty)));
         let onlineValidatorReward = baseReward * proportionalBaseReward * validatorUptime + 1 * (0.125 * baseReward * validatorUptime + 0.875 * baseReward * (validatorUptime + validatorUptime * (1 - validatorUptime) * (1 - lateSlotPenalty) + validatorUptime * (1 - validatorUptime) ** 2 * (1 - 2 * lateSlotPenalty)));
-        console.log(onlineValidatorReward);
         setStakeReward(onlineValidatorReward)
-
-        //   
     }
 
     const calcValidatorPenalty = () => {
@@ -76,7 +70,7 @@ export default function Calculation() {
     })
 
     return (
-        <p>{returns ? `${returns.toFixed(2)}% APR` : "Calculating"}</p>
+        <p className="yield" >{returns ? `${returns.toFixed(3)}% APR` : "Calculating"}</p>
     )
 }
 

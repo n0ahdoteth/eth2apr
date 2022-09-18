@@ -13,12 +13,7 @@ export default function ETHPrice() {
             .catch(err => {
                 console.log(err)
             })
-        // .then(data => setEthPrice)
     }
-
-    //Calculator Variables
-    //Stake. Default to 32ETH
-    //ETH Price, fetch from coingecko
 
     useEffect(() => {
         fetchCurrencyData().then(priceData => {
@@ -27,6 +22,6 @@ export default function ETHPrice() {
     }, [])
 
     return (
-        <div>Cost of Validator Node (32ETH): ${ethPrice * 32}</div>
+        <p class="info-p">Validator Node Cost (32ETH): ${ethPrice * 32}</p>
     )
 }

@@ -16,12 +16,6 @@ export default function ETHPrice() {
         // .then(data => setEthPrice)
     }
 
-
-
-    //Calculator Variables
-    //Stake. Default to 32ETH
-    //ETH Price, fetch from coingecko
-
     useEffect(() => {
         fetchCurrencyData().then(priceData => {
             setEthPrice(priceData || 'no price data found');
@@ -29,6 +23,6 @@ export default function ETHPrice() {
     }, [])
 
     return (
-        <div>ETH Price: ${ethPrice}</div>
+        <p class="info-p">ETH Price: ${ethPrice}</p>
     )
 }
